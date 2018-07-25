@@ -39,3 +39,5 @@ class DogFound extends React.Component{
         )
     }
 }
+
+export default DogFound

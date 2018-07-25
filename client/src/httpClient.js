@@ -15,7 +15,8 @@ httpClient.setToken = (token) => {
 
 httpClient.getCurrentUser = function(){
     const token = this.getToken();
-    return token ? jwtDecode(token) : null;
+    if(token){
+    return jwtDecode(token)};
 }
 
 httpClient.signUp = function(userInfo){
