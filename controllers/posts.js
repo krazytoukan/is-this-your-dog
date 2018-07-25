@@ -1,5 +1,6 @@
 const 
     Post = require('../models/Post')
+    paperclip = require('node-paperclip').paperclip
 
 module.exports = {
 
