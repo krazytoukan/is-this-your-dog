@@ -5,12 +5,15 @@ import SignUp from './views/SignUp';
 import LogIn from './views/LogIn';
 import Home from './views/Home';
 import LogOut from './views/LogOut';
-import NavBar from './views/Navbar'
-
+import NavBar from './views/Navbar';
+import DogFound from './views/DogFound';
+import DogInfo from './views/DogInfo';
+import DogEdit from './views/DogEdit'
+import 'milligram'
 import './App.css';
 
 class App extends Component {
-  state ={
+  state = {
     currentUser: httpClient.getCurrentUser()
   }
 
@@ -22,13 +25,18 @@ class App extends Component {
   onLogOutSuccess(){
     this.setState({currentUser: null})
   }
-
+  
   render() {
     return (
       <div className="App">
-      <NavBar />
+      <NavBar  currentUser={this.state.currentUser} />
        <Switch>
-       <Route exact path ='/signup' render={(routeProps) => {
+         <Route exact path="/dogfound" render={(routeProps) => {
+           return this.state.currentUser
+           ? <DogFound  {...routeProps} />
+           : <Redirect to='/' />
+         }} />
+          <Route exact path ='/signup' render={(routeProps) => {
             return <SignUp {...routeProps} onSignUpSuccess={this.onAuthSuccess.bind(this)} />
           }} />
           <Route exact path='/login' render={(routeProps) => {
@@ -37,6 +45,12 @@ class App extends Component {
           <Route exact path='/logout' render={(routeProps) => {
             return <LogOut {...routeProps} onLogOutSuccess={this.onLogOutSuccess.bind(this)} />
           }} />
+          <Route exact path="/dogs/:id/edit"  render={(routeProps) => {
+            return this.state.currentUser
+            ? <DogEdit {...routeProps} />
+            : <Redirect to='/' />
+          }} />
+          <Route exact path="/dogs/:id" currentUser={this.state.currentUser} component={DogInfo} />
           <Route exact path="/" component={Home} />
         </Switch>
       </div>

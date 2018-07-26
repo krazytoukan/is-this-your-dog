@@ -2,6 +2,7 @@ import React, {Fragment} from "react"
 import {Link} from "react-router-dom"
 
 const NavBar = (props) => {
+    console.log(props)
     return(
         <div className="NavBar">
             <Link to='/'> Home </Link>

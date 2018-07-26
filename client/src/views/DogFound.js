@@ -1,40 +1,72 @@
 import React from 'react'
 import axios from 'axios'
+import SubmitForm from '../partials/submitform'
 
 const apiClient = axios.create()
 
-class DogFound extends React.Component{
+class DogFound extends React.Component {
 
     state = {
+        title: "",
+        body: "",
         selectedFile: null
     }
 
-    fileSelectedHandler = (evt) => {
-        this.setState({selectedFile: evt.target.files[0]})
+    handleChange = (event) => {
+        event.preventDefault()
+        this.setState({ [event.target.name]: event.target.value })
     }
 
-    onSubmit = (event) => {
-        event.preventDefaultl
-        this.fileUpload(this.state.selectedFile)
+    handleFileSelect = event => {
+        console.log(event.target.files[0])
+        this.setState({
+            selectedFile: event.target.files[0]
+        })
     }
 
-    fileUpload = (file) => {
-        const url = "place-holder"
+    // fileUploadHandler = () => {
+    //   const fd = new FormData()
+    //   fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
+    //   // stores file in cloud storage
+    // axios.post('my-domain.com/file-upload', fd, {
+    //   onUploadProgress: progressEvent => {
+    //     console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
+    //   }
+    // })
+    //     .then(res => {
+
+    //     })
+    // }
+
+    handleSubmit = (event) => {
+        event.preventDefault()
         const fd = new FormData()
-        fd.append('image', file)
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
+        let { title, body} = this.state
+        fd.append('title', title)
+        fd.append('body', body)
+        fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
+        apiClient.post('/api/posts', fd, {
+            onUploadProgress: progressEvent => {
+                console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
             }
-        }
-        return apiClient.post(url, fd, config)
+        })
+            .then(response => {
+                this.props.history.push('/')
+            })
     }
-
-    render(){
-        return(
+    render() {
+        let { title, body} = this.state
+        return (
             <div>
-                <input type="file" onChange={this.fileSelectedHandler} />
-                <button onClick={this.onSubmit}> Upload </button>
+                <h1>Dog Found!</h1>
+                <p> Did you find some good boy or girl all out there on their lonesome and want to reunite them with their family? Use the form below to post an image, description, and location of the missing pooch to facilitate getting that doggo back with its parents! </p>
+                <SubmitForm
+                    handleChange={this.handleChange}
+                    handleFileSelect={this.handleFileSelect}
+                    handleSubmit={this.handleSubmit}
+                    title={title}
+                    body={body}
+                />
             </div>
         )
     }
