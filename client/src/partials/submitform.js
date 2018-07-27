@@ -12,7 +12,7 @@ const SubmitForm = (props) => {
           autoComplete="off" 
           value={title} 
         />
-        <input 
+        <textarea 
           onChange={handleChange} 
           type="text" 
           placeholder="Description and Location Found" 

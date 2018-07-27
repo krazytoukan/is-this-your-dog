@@ -18,17 +18,15 @@ class SingleDog extends React.Component{
 
     render(){
         if(!this.state.dog){return <h1> Loading </h1>}
-        console.log(this.props)
+        const {currentUser} = this.props
+        const {dog} = this.state
         return(
         <div>
             <h1> {this.state.dog.title} </h1>
             <h2> {this.state.dog.body} </h2>
             <img src={this.state.dog.featuredImageUrl} />
-        {this.state.dog._by === this.state.currentUser
-        ?    (<Link to={`/dogs/${this.state.dog._id}/edit`}> Edit this post </Link>)
-        :(
-            <hr />
-        )
+        {currentUser && dog._by === currentUser._id && (
+            <Link to={`/dogs/${this.state.dog._id}/edit`}> Edit this post </Link>)
         }
         </div>
         )

@@ -57,6 +57,7 @@ module.exports = {
                   });
                   uploader.on('end', function () {
                     console.log("done uploading");
+                    fs.remove(tempUploadPath)
                     Post.create({ ...fields, _by: req.user, featuredImageName: files.image.name }, (err, newPost) => {
                       if (err) {
                         res.json({ status: "FAIL", err })
@@ -101,7 +102,7 @@ module.exports = {
         let id = req.params.id
         Post.findById(id, (err, post) =>{
             if(err) return res.json({message: "ERROR", payload: null, code: err.code})
-            if(req.user._id === post._by) {
+            if(req.user._id.equals(post._by)) {
                 post.remove((err, repost) => {
                     if(err) return res.json({message: "ERROR", payload: null, code: err.code})
 			        res.json({ message: "SUCCESS", payload: repost })

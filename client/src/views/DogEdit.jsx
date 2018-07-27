@@ -29,8 +29,14 @@ class Edit extends React.Component{
         let id = this.props.match.params.id
         apiClient({method: "patch", url: `/api/posts/${id}`, data :{title, body}})
             .then(response => {
-                this.props.history.push(`/posts/${id}`)
+                this.props.history.push(`/dogs/${id}`)
             })
+    }
+
+    deletePost = (e) => {
+        let id = this.props.match.params.id
+        apiClient({method: "delete", url: `/api/posts/${id}`})
+            .then(response => (this.props.history.push(`/`)))
     }
 
     render(){
@@ -45,6 +51,7 @@ class Edit extends React.Component{
                 title= {title}
                 body = {body}
             />
+            <button onClick={this.deletePost}> Delete this post </button>
             </div>
         )
     }

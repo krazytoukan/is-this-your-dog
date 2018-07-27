@@ -50,7 +50,9 @@ class App extends Component {
             ? <DogEdit {...routeProps} />
             : <Redirect to='/' />
           }} />
-          <Route exact path="/dogs/:id" currentUser={this.state.currentUser} component={DogInfo} />
+          <Route exact path="/dogs/:id"  render={(routeProps) => {
+            return  <DogInfo {...routeProps} currentUser={this.state.currentUser} />
+          }} />
           <Route exact path="/" component={Home} />
         </Switch>
       </div>

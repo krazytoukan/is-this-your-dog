@@ -13,9 +13,7 @@ postRouter.use(verifyToken)
 
 // Post route for uploading files with paperclip
 postRouter.post('/', postsCtrl.create)
-            
-
 postRouter.patch('/:id', postsCtrl.update)
-// postRouter.delete('/:id', postsCtrl.destroy)
+postRouter.delete('/:id', postsCtrl.destroy)
 
 module.exports = postRouter
