@@ -9,7 +9,7 @@ class DogFound extends React.Component {
     state = {
         title: "",
         body: "",
-        tags: [],
+        tags: "",
         selectedFile: null
     }
 

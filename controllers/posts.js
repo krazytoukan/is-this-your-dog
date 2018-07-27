@@ -58,8 +58,7 @@ module.exports = {
                   uploader.on('end', function () {
                     console.log("done uploading");
                     fs.remove(tempUploadPath)
-                    const tags = fields.tags.split('# ')
-                    Post.create({ ...fields, _by: req.user, tags, featuredImageName: files.image.name }, (err, newPost) => {
+                    Post.create({ ...fields, _by: req.user, featuredImageName: files.image.name }, (err, newPost) => {
                       if (err) {
                         res.json({ status: "FAIL", err })
                       } else {
