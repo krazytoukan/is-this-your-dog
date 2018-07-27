@@ -1,6 +1,6 @@
 import React from 'react'
-import {updateChat} from '../partials/chatscript'
-import {io} from 'socket.io'
+import updateChat from '../partials/chatscript'
+import io from 'socket.io-client'
 
 const socket = io()
 
@@ -11,6 +11,13 @@ class Chat extends React.Component {
         currentUser: null,
         message: "",
         chatList: null
+    }
+
+    constructor(props){
+        super(props)
+        updateChat((err, data)=>{
+            this.setState({chatList: [...this.state.chatList, data]})
+        })
     }
 
     componentDidMount(){
@@ -24,13 +31,6 @@ class Chat extends React.Component {
         this.setState({message: ""})
     }
 
-    constructor(props){
-        super(props)
-        updateChat((err, data)=>{
-            this.setState({chatList: [...chatList, data]})
-        })
-    }
-
     handleTextChange =(e) => {
         e.preventDefault();
         this.setState({ [e.target.name] : e.target.value})
@@ -41,8 +41,8 @@ class Chat extends React.Component {
         return (
             <div>
                 <h5>Chat With Other Martian Robots!</h5>
-                <input type="text" id="message" placeholder="Message" onChange={handleTextChange} />
-                    <button  onClick={sendMessage} id="send-chat" >Send</button>
+                <input type="text" id="message" placeholder="Message" onChange={this.handleTextChange} />
+                    <button  onClick={this.sendMessage} id="send-chat" >Send</button>
                     <ul>
                         {chatList.map((message)=>{
                             return <li key={message.key}> ${message.user} said ${message.message}  </li>

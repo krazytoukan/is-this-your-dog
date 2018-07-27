@@ -8,7 +8,7 @@ import LogOut from './views/LogOut';
 import NavBar from './views/Navbar';
 import DogFound from './views/DogFound';
 import DogInfo from './views/DogInfo';
-import DogEdit from './views/DogEdit'
+import DogEdit from './views/DogEdit';
 import 'milligram'
 import './App.css';
 

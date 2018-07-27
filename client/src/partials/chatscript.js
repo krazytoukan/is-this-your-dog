@@ -1,4 +1,4 @@
-import 'socket.io-client'
+import openSocket from 'socket.io-client'
 
 const socket = openSocket('http://localhost:3001')
 
@@ -7,4 +7,4 @@ const updateChat = () => {
     socket.emit(data)
 })}
 
-export default updateChat
+export default updateChat;
