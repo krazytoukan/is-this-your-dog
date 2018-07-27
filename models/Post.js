@@ -5,7 +5,8 @@ const
         body: {type: String},
         image: {type: String},
         _by: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
-        featuredImageName: String
+        featuredImageName: String,
+        tags: [String]
     })
 
 postSchema.virtual('featuredImageUrl').get(function(){

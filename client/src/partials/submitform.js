@@ -1,7 +1,7 @@
 import React from 'react'
 
 const SubmitForm = (props) => {
-  let { handleChange, handleFileSelect, handleSubmit, title, body} = props
+  let { handleChange, handleFileSelect, handleSubmit, tags, title, body} = props
   return (
     <form onSubmit={handleSubmit}>
         <input 
@@ -19,6 +19,14 @@ const SubmitForm = (props) => {
           name="body" 
           autoComplete="off" 
           value={body}
+        />
+         <input 
+          onChange={handleChange} 
+          type="text" 
+          placeholder="Tags" 
+          name="tags" 
+          autoComplete="off" 
+          value={tags}
         />
         <input 
           type="file" 

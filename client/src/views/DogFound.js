@@ -9,6 +9,7 @@ class DogFound extends React.Component {
     state = {
         title: "",
         body: "",
+        tags: [],
         selectedFile: null
     }
 
@@ -41,9 +42,10 @@ class DogFound extends React.Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const fd = new FormData()
-        let { title, body} = this.state
+        let { title, body, tags} = this.state
         fd.append('title', title)
         fd.append('body', body)
+        fd.append('tags', tags)
         fd.append('image', this.state.selectedFile, this.state.selectedFile.name)
         apiClient.post('/api/posts', fd, {
             onUploadProgress: progressEvent => {
@@ -55,7 +57,7 @@ class DogFound extends React.Component {
             })
     }
     render() {
-        let { title, body} = this.state
+        let { title, body, tags} = this.state
         return (
             <div>
                 <h1>Dog Found!</h1>
@@ -66,6 +68,7 @@ class DogFound extends React.Component {
                     handleSubmit={this.handleSubmit}
                     title={title}
                     body={body}
+                    tags={tags}
                 />
             </div>
         )
