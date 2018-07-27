@@ -7,7 +7,9 @@ const
 	MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/is-this-your-dog',
 	PORT = process.env.PORT || 3001,
 	usersRoutes = require('./routes/users.js'),
-	postsRoutes = require('./routes/posts.js')
+	postsRoutes = require('./routes/posts.js'),
+	server = require('http').createServer(app),
+	io = require('socket.io')(server)
 
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
 	console.log(err || `Connected to MongoDB.`)
@@ -31,6 +33,12 @@ app.use('/api/posts', postsRoutes)
 // 	res.sendFile(`${__dirname}/client/build/index.html`)
 // })
 
-app.listen(PORT, (err) => {
+io.on('connection', (socket) => {
+	socket.on('sendmessage', (data) => {
+	  io.emit('receivemessage', data)
+	})
+  })
+
+server.listen(PORT, (err) => {
 	console.log(err || `Server running on port ${PORT}.`)
 })
