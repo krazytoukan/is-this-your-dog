@@ -9,7 +9,8 @@ import {Button} from 'semantic-ui-react'
 class ProfileEdit extends Component {
   state = {
     fields: { ...this.props.currentUser },
-    formEnabled: false
+    formEnabled: false,
+    message: ""
   }
 
   /* 

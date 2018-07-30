@@ -54,7 +54,7 @@ httpClient.logOut = function(){
 httpClient.updateProfile = function(credentials) {
     return this({ method: 'patch', url: `/api/users/me`, data: credentials })
       .then((serverResponse) => {
-        const { token } = serverResponse.data.payload
+        let token = serverResponse.data.payload
         this.defaults.headers.common.token = this.setToken(token);
         return jwtDecode(token)
       })
