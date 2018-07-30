@@ -1,5 +1,5 @@
 import React from 'react'
-import { Sidebar, Segment, Menu } from 'semantic-ui-react'
+import { Input, Button } from 'semantic-ui-react'
 import io from 'socket.io-client'
 
 const socket = io()
@@ -47,8 +47,8 @@ class Chat extends React.Component {
         return (
             <div>
                 <h5>Chat With Other Users Regarding Pooches (Found or Otherwise)!</h5>
-                <input type="text" name="message" placeholder="Message" onChange={this.handleTextChange} />
-                <button onClick={this.sendMessage} id="send-chat" >Send</button>
+                <Input type="text" name="message" placeholder="Message" onChange={this.handleTextChange} size="large" />
+                <Button size="large" onClick={this.sendMessage} id="send-chat" >Send</Button>
                 <div>
                     {chatList.map((message, idx) => {
                         return <div key={idx} className="messages"> {message.user} said {message.message}  </div>

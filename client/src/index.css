@@ -42,3 +42,8 @@ Input {
 button {
   margin-bottom: 20px
 }
+
+.messages {
+  font-size: 16px;
+  margin-bottom: 15px;
+}

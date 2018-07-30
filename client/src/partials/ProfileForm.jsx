@@ -6,20 +6,20 @@ const ProfileForm = (props) => {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <div>
+      <Form.Field>
         <Input className="dogform"
           type="text"
           name="name"
           onChange={handleChange}
           value={name} />
-      </div>
-      <div>
+      </Form.Field>
+      <Form.Field>
         <Input className="dogform"
           type="text"
           name="email"
           onChange={handleChange}
           value={email} />
-      </div>
+      </Form.Field>
       <Input type="Submit" value="Submit" positive />
     </Form>
   )

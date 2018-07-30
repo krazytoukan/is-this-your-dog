@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import httpClient from '../httpClient'
-import axios from 'axios'
 import ProfileForm from '../partials/ProfileForm';
 import ProfileDetail from '../partials/ProfileDetail'
-import {Button} from 'semantic-ui-react'
+import { Button, Form } from 'semantic-ui-react'
 
 
 class ProfileEdit extends Component {
@@ -58,12 +57,12 @@ class ProfileEdit extends Component {
         <ProfileDetail fields={fields} currentUser={currentUser} />
         <div>
           {formEnabled
-            ? <ProfileForm className="dogform" name={fields.name} email={fields.email} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-            : <Button positive className="dogform" onClick={this.toggleForm}>Edit Profile</Button>}
+            ? <Form.Field> <ProfileForm className="dogform" name={fields.name} email={fields.email} handleChange={this.handleChange} handleSubmit={this.handleSubmit} /> </Form.Field>
+            : <Form.Field> <Button positive className="dogform" onClick={this.toggleForm}>Edit Profile</Button> </Form.Field>}
         </div>
-        <div>
+        <Form.Field>
           <Button negative onClick={this.deleteProfile}>Delete Profile</Button>
-        </div>
+        </Form.Field>
       </div>
     )
   }

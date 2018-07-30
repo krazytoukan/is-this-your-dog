@@ -3,11 +3,6 @@ import React, { Component } from 'react'
 
 class ProfileDetail extends Component {
 
-    formatLink(url) {
-        if (url.includes('http')) return url
-        return `http://${url}`
-    }
-
     render() {
         const { fields, currentUser } = this.props
         return (
