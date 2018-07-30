@@ -4,7 +4,8 @@ body {
 }
 
 .title {
-  font-size: 64px
+  font-size: 64px;
+  color: white
 }
 
 div.App {
@@ -21,4 +22,13 @@ div.App {
 
 .dog-tags {
   font-size: 20px
+}
+
+.dtitle {
+  width: 50%;
+  margin-bottom: 20px
+}
+
+.dogform {
+  margin-bottom: 20px
 }

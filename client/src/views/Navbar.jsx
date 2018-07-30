@@ -10,6 +10,7 @@ const NavBar = (props) => {
             ?  (
                 <Fragment>
                    <Menu.Item header> <Link to ='/DogFound'> Pooch Found 🐶 ! </Link> </Menu.Item>
+                   <Menu.Item  header> <Link to="/profile"> Edit Profile </Link></Menu.Item>
                    <Menu.Item header> <Link to ='/logout'> Log Out </Link> </Menu.Item>
                 </Fragment>
             )

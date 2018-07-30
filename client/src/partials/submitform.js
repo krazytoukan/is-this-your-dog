@@ -6,7 +6,7 @@ const SubmitForm = (props) => {
   return (
       <Form onSubmit={handleSubmit}>
         <div>
-          <Input
+          <Input className="dogform"
             onChange={handleChange}
             type="text"
             placeholder="Title"
@@ -14,10 +14,11 @@ const SubmitForm = (props) => {
             autoComplete="off"  
             size="big"
             value={title}
+            style={{width: 50 +"%"}}
           />
         </div>
         <div>
-          <TextArea
+          <TextArea className="dogform"
             onChange={handleChange}
             type="text"
             placeholder="Description and Location Found"
@@ -25,11 +26,10 @@ const SubmitForm = (props) => {
             autoComplete="off"
             value={body}
             autoHeight
-            style="{width: 400px}"
           />
         </div>
         <div>
-          <TextArea
+          <TextArea className="dogform"
             onChange={handleChange}
             type="text"
             placeholder="Tags"
@@ -40,12 +40,12 @@ const SubmitForm = (props) => {
           />
         </div>
         <div>
-          <Input
+          <Input className="dogform"
             type="file"
             onChange={handleFileSelect}
           />
         </div>
-        <Input type="submit" value="Submit" />
+        <Input className="dogform" type="submit" value="Submit" />
       </Form>
   )
 }

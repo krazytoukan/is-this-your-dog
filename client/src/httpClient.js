@@ -51,15 +51,12 @@ httpClient.logOut = function(){
     return true
 }
 
-httpClient.updateProfile = function(userInfo) {
-    return this({ method: 'patch', url: `/api/users/me`, data: userInfo })
-      .then(response => {
-        const { token } = response.data.payload
+httpClient.updateProfile = function(credentials) {
+    return this({ method: 'patch', url: `/api/users/me`, data: credentials })
+      .then((serverResponse) => {
+        const { token } = serverResponse.data.payload
         this.defaults.headers.common.token = this.setToken(token);
         return jwtDecode(token)
-        // let { name, email, website } = response.data.payload.updatedUser;
-        // let currentUser = Object.assign({}, this.state.currentUser, { name, email, website });
-        // this.setState({ currentUser, formEnabled: false });
       })
   }
   

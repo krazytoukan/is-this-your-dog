@@ -1,18 +1,14 @@
 import React, { Component } from 'react'
 import httpClient from '../httpClient'
 import axios from 'axios'
-import ProfileForm from '../components/ProfileForm';
-import ProfileDetail from '../components/ProfileDetail'
+import ProfileForm from '../partials/ProfileForm';
+import ProfileDetail from '../partials/ProfileDetail'
+import {Button} from 'semantic-ui-react'
 
-const apiClient = axios.create()
 
 class ProfileEdit extends Component {
   state = {
-    // referring to app.js for current user ifo
     fields: { ...this.props.currentUser },
-    // hold submissions
-    submissions: [],
-    // toggle form for updating profile
     formEnabled: false
   }
 
@@ -24,21 +20,6 @@ class ProfileEdit extends Component {
   get all submissions on page
   */
 
-  componentDidMount() {
-    // add user submitted posts using user show route
-    const { _id } = this.props.currentUser;
-    apiClient({
-      method: 'get',
-      url: `/api/users/${_id}`
-    })
-      .then((apiResponse) => {
-        console.log(apiResponse.data.payload)
-        // submissions payload is in user payload
-        let { submissions } = apiResponse.data.payload;
-        this.setState({ submissions: submissions })
-      })
-  }
-
   handleChange = (e) => {
     e.preventDefault();
     // console.log(this.state)
@@ -48,11 +29,8 @@ class ProfileEdit extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // sending update request to httpClient with fields set from state
-    // console.log(this.state.fields)
     httpClient.updateProfile(this.state.fields)
       .then(user => {
-    // set state in App /profile route to handle updating token to update user
         this.props.onUpdateProfileSuccess()
       })
   }
@@ -65,37 +43,26 @@ class ProfileEdit extends Component {
     e.preventDefault()
     httpClient.deleteProfile()
       .then(response => {
-  // set state in App /profile to handle deleting token
         this.props.onDeleteProfileSuccess()
         this.props.history.push('/')
       })
   }
 
-    formatLink(url) {
-    if (url.includes('http')) return url
-    return `http://${url}`
-  }
-
   render() {
-    // console.log(this.state.currentUser)
-    // fields set from state
-    // current user set from App.js
-    let { fields, formEnabled, submissions } = this.state;
+
+    let { fields, formEnabled } = this.state;
     let { currentUser } = this.props
     return (
       <div>
         <ProfileDetail fields={fields} currentUser={currentUser} />
-
         <div>
           {formEnabled
-            ? <ProfileForm name={fields.name} email={fields.email} website={fields.website} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-            : <button onClick={this.toggleForm}>Edit Profile</button>}
+            ? <ProfileForm name={fields.name} email={fields.email} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+            : <Button positive onClick={this.toggleForm}>Edit Profile</Button>}
         </div>
         <div>
-          <a href='#' onClick={this.deleteProfile}>Delete Profile</a>
+          <Button negative onClick={this.deleteProfile}>Delete Profile</Button>
         </div>
-
-      <SubmissionCard submissions={submissions} />
       </div>
     )
   }

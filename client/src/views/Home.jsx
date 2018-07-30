@@ -34,7 +34,7 @@ class Home extends React.Component {
                 <div className="home">
                     <h1 className="title"> Is This Your Dog?!</h1>
                     <p className="intro"> Is this your dog? We are a crowdsourced website which allows users to post photos of dogs they have found (or that they just took a really good photo of!) so that their owners can easily find their missing poocherinos quickly and, hopefully, without too much worry.  Found a dog? Post its photo, location, and description here! </p>
-                    <Input icon={<Icon name='search' inverted circular link />} placeholder='Search by Dog Tags!' onChange={this.handleChange} />
+                    <Input icon={<Icon name='search' inverted circular link />} placeholder='Search by Dog Tags!' onChange={this.handleChange} fluid />
                     <div>
                         {result.map((dog) => {
                             return (
