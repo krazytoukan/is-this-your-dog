@@ -9,7 +9,9 @@ import NavBar from './views/Navbar';
 import DogFound from './views/DogFound';
 import DogInfo from './views/DogInfo';
 import DogEdit from './views/DogEdit';
+// import ProfileEdit from './views/ProfileEdit'
 import './App.css';
+import Footer from './partials/Footer'
 
 class App extends Component {
   state = {
@@ -35,6 +37,13 @@ class App extends Component {
            ? <DogFound  {...routeProps} />
            : <Redirect to='/' />
          }} />
+         {/* <Route exact path ='profile'render={(routeProps) => {
+           return this.state.currentUser
+           ? <ProfileEdit {...routeProps} currentUser={this.state.currentUser} 
+              onUpdateProfileSuccess={this.onAuthSuccess.bind(this)}
+              onDeleteProfileSuccess={this.onLogOutSuccess.bind(this)}/>
+           : <Redirect to='/' />
+         }} /> */}
           <Route exact path ='/signup' render={(routeProps) => {
             return <SignUp {...routeProps} onSignUpSuccess={this.onAuthSuccess.bind(this)} />
           }} />
@@ -54,6 +63,7 @@ class App extends Component {
           }} />
           <Route exact path="/" component={Home} />
         </Switch>
+        <Footer />
       </div>
     );
   }

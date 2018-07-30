@@ -32,16 +32,16 @@ class Home extends React.Component {
         return (
             <Container>
                 <div className="home">
-                    <h1>Is This Your Dog?!</h1>
-                    <p> Is this your dog? We are a crowdsourced website which allows users to post photos of dogs they have found (or that they just took a really good photo of!) so that their owners can easily find their missing poocherinos quickly and, hopefully, without too much worry.  Found a dog? Post its photo, location, and description here! </p>
+                    <h1 className="title"> Is This Your Dog?!</h1>
+                    <p className="intro"> Is this your dog? We are a crowdsourced website which allows users to post photos of dogs they have found (or that they just took a really good photo of!) so that their owners can easily find their missing poocherinos quickly and, hopefully, without too much worry.  Found a dog? Post its photo, location, and description here! </p>
                     <Input icon={<Icon name='search' inverted circular link />} placeholder='Search by Dog Tags!' onChange={this.handleChange} />
                     <div>
                         {result.map((dog) => {
                             return (
                                 <div key={dog._id}>
-                                    <h3> {dog.title} </h3>
+                                    <h3 className="dname"> {dog.title} </h3>
                                     <Link to={`/dogs/${dog._id}`}>  <Image src={dog.featuredImageUrl} bordered circular centered /> </Link>
-                                    <h5> Dog Tags: {dog.tags}</h5>
+                                    <h5 className="dog-tags"> Dog Tags: {dog.tags}</h5>
                                     <hr />
                                 </div>
                             )

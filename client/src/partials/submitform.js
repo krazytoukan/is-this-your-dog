@@ -1,10 +1,10 @@
 import React from 'react'
-import { TextArea, Input, Button, Container } from "semantic-ui-react"
+import { TextArea, Input, Form, Container } from "semantic-ui-react"
 
 const SubmitForm = (props) => {
   let { handleChange, handleFileSelect, handleSubmit, tags, title, body } = props;
   return (
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit}>
         <div>
           <Input
             onChange={handleChange}
@@ -14,7 +14,6 @@ const SubmitForm = (props) => {
             autoComplete="off"  
             size="big"
             value={title}
-            fluid
           />
         </div>
         <div>
@@ -26,20 +25,18 @@ const SubmitForm = (props) => {
             autoComplete="off"
             value={body}
             autoHeight
-            fluid
             style="{width: 400px}"
           />
         </div>
         <div>
-          <Input
+          <TextArea
             onChange={handleChange}
             type="text"
             placeholder="Tags"
             name="tags"
             autoComplete="off"
-            size="big"
+            autoHeight
             value={tags}
-            fluid
           />
         </div>
         <div>
@@ -49,7 +46,7 @@ const SubmitForm = (props) => {
           />
         </div>
         <Input type="submit" value="Submit" />
-      </form>
+      </Form>
   )
 }
 

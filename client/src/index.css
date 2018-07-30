@@ -1,3 +1,24 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Quicksand', sans-serif;
+  background-color: #dae2ef
+}
+
+.title {
+  font-size: 64px
+}
+
+div.App {
+  background-color: #dae2ef
+}
+
+.intro {
+  font-size: 24px
+}
+
+.dname {
+  font-size: 30px
+}
+
+.dog-tags {
+  font-size: 20px
 }
