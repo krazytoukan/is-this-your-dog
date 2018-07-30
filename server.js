@@ -16,7 +16,6 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
 
 //Commented code for static build laster on
 app.use(express.static(`${__dirname}/client/build`))
-app.use(logger('dev'))
 app.use(express.json())
 
 app.get('/api', (req, res) => {
