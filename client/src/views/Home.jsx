@@ -38,7 +38,7 @@ class Home extends React.Component {
                         <div key={dog._id}>
                             <h3> {dog.title} </h3>
                             <Link to ={`/dogs/${dog._id}`}>  <img src={dog.featuredImageUrl} /> </Link>
-                            <h5> {dog.tags}</h5>
+                            <h5> Dog Tags: {dog.tags}</h5>
                             <hr />
                         </div>
                     )
