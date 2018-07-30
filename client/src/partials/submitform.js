@@ -1,38 +1,42 @@
 import React from 'react'
+import {TextArea, Input, Button} from "semantic-ui-react"
 
 const SubmitForm = (props) => {
   let { handleChange, handleFileSelect, handleSubmit, tags, title, body} = props
   return (
     <form onSubmit={handleSubmit}>
-        <input 
+        <Input 
           onChange={handleChange} 
           type="text" 
           placeholder="Title" 
           name="title" 
           autoComplete="off" 
+          size="big"
           value={title} 
         />
-        <textarea 
+        <TextArea 
           onChange={handleChange} 
           type="text" 
           placeholder="Description and Location Found" 
           name="body" 
           autoComplete="off" 
           value={body}
+          autoHeight
         />
-         <input 
+         <Input 
           onChange={handleChange} 
           type="text" 
           placeholder="Tags" 
           name="tags" 
           autoComplete="off" 
+          size="big"
           value={tags}
         />
-        <input 
+        <Input 
           type="file" 
           onChange={handleFileSelect} 
         />
-        <button>Submit</button>
+        <Button positive>Submit</Button>
       </form>
   )
 }
