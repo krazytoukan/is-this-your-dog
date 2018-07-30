@@ -16,7 +16,7 @@ mongoose.connect(MONGODB_URI, { useNewUrlParser: true }, (err) => {
 })
 
 //Commented code for static build laster on
-// app.use(express.static(`${__dirname}/client/build`))
+app.use(express.static(`${__dirname}/client/build`))
 app.use(logger('dev'))
 app.use(express.json())
 
@@ -29,9 +29,9 @@ app.use('/api/posts', postsRoutes)
 
 
 //Commented out for getting to build on final build
-// app.get('*', (req, res) => {
-// 	res.sendFile(`${__dirname}/client/build/index.html`)
-// })
+app.get('*', (req, res) => {
+	res.sendFile(`${__dirname}/client/build/index.html`)
+})
 
 io.on('connection', (socket) => {
 	socket.on('sendmessage', (data) => {
