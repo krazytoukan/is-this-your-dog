@@ -1,10 +1,9 @@
-import openSocket from 'socket.io-client'
+import io from 'socket.io-client'
 
-const socket = openSocket('http://localhost:3001')
+const socket = io('http://localhost:3001')
 
-const updateChat = () => {
-    socket.on('receivemessage', (data) => {
-    socket.emit(data)
-})}
+const updateChat = (cb) => {
+    socket.on('receivemessage', cb)
+}
 
 export default updateChat;

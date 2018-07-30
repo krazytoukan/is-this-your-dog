@@ -58,8 +58,8 @@ class ProfileEdit extends Component {
         <ProfileDetail fields={fields} currentUser={currentUser} />
         <div>
           {formEnabled
-            ? <ProfileForm name={fields.name} email={fields.email} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
-            : <Button positive onClick={this.toggleForm}>Edit Profile</Button>}
+            ? <ProfileForm className="dogform" name={fields.name} email={fields.email} handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+            : <Button positive className="dogform" onClick={this.toggleForm}>Edit Profile</Button>}
         </div>
         <div>
           <Button negative onClick={this.deleteProfile}>Delete Profile</Button>

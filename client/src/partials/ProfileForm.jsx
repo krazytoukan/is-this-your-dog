@@ -7,14 +7,14 @@ const ProfileForm = (props) => {
   return (
     <Form onSubmit={handleSubmit}>
       <div>
-        <Input
+        <Input className="dogform"
           type="text"
           name="name"
           onChange={handleChange}
           value={name} />
       </div>
       <div>
-        <Input
+        <Input className="dogform"
           type="text"
           name="email"
           onChange={handleChange}

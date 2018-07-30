@@ -11,6 +11,7 @@ import DogInfo from './views/DogInfo';
 import DogEdit from './views/DogEdit';
 import ProfileEdit from './views/ProfileEdit'
 import './App.css';
+import Chatbar from './views/Chatbar'
 import Footer from './partials/Footer'
 
 class App extends Component {
@@ -31,6 +32,7 @@ class App extends Component {
     return (
       <div className="App">
       <NavBar  currentUser={this.state.currentUser} />
+      {this.state.currentUser && <Chatbar currentUser={this.state.currentUser} />}
        <Switch>
          <Route exact path="/dogfound" render={(routeProps) => {
            return this.state.currentUser

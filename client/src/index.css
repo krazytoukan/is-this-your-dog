@@ -9,7 +9,8 @@ body {
 }
 
 div.App {
-  background-color: #dae2ef
+  background-color: #dae2ef;
+  min-height: 100vh
 }
 
 .intro {
@@ -17,7 +18,8 @@ div.App {
 }
 
 .dname {
-  font-size: 30px
+  font-size: 30px;
+  color: white
 }
 
 .dog-tags {
@@ -30,5 +32,13 @@ div.App {
 }
 
 .dogform {
+  margin-bottom: 20px
+}
+
+Input {
+  margin-bottom: 20px
+}
+
+button {
   margin-bottom: 20px
 }
