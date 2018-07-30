@@ -2,7 +2,6 @@ require('dotenv').config()
 const
 	express = require('express'),
 	app = express(),
-	logger = require('morgan'),
 	mongoose = require('mongoose'),
 	MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/is-this-your-dog',
 	PORT = process.env.PORT || 3001,
