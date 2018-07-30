@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import SubmitForm from '../partials/submitform'
+import {Container} from "semantic-ui-react"
 
 const apiClient = axios.create()
 
@@ -60,6 +61,7 @@ class DogFound extends React.Component {
         let { title, body, tags} = this.state
         return (
             <div>
+                <Container>
                 <h1>Dog Found!</h1>
                 <p> Did you find some good boy or girl all out there on their lonesome and want to reunite them with their family? Use the form below to post an image, description, and location of the missing pooch to facilitate getting that doggo back with its parents! </p>
                 <SubmitForm
@@ -70,6 +72,7 @@ class DogFound extends React.Component {
                     body={body}
                     tags={tags}
                 />
+                </Container>
             </div>
         )
     }

@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import {Link} from 'react-router-dom'
+import {Button, Image} from "semantic-ui-react"
 
 const apiClient = axios.create()
 
@@ -22,11 +23,13 @@ class SingleDog extends React.Component{
         const {dog} = this.state
         return(
         <div>
-            <h1> {this.state.dog.title} </h1>
-            <h2> {this.state.dog.body} </h2>
-            <img src={this.state.dog.featuredImageUrl} />
+            <h1> {dog.title} </h1>
+            <h2> {dog.body} </h2>
+            <Image src={dog.featuredImageUrl} circular bordered centered />
+            <h3> Dog Tags : {dog.tags} </h3>
         {currentUser && dog._by === currentUser._id && (
-            <Link to={`/dogs/${this.state.dog._id}/edit`}> Edit this post </Link>)
+            <Button color="yellow"><Link to={`/dogs/${this.state.dog._id}/edit`}> Edit this post </Link> </Button>
+            )
         }
         </div>
         )

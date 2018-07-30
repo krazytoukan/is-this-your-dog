@@ -1,7 +1,7 @@
 import React from "react";
 import SubmitForm from '../partials/submitform'
 import axios from 'axios'
-import {Button} from 'semantic-ui-react'
+import {Button, Container} from 'semantic-ui-react'
 
 const apiClient = axios.create()
 
@@ -44,6 +44,7 @@ class Edit extends React.Component{
         let {dog, title, body} = this.state
         if(!this.state.dog) {return <h1> Loading... </h1>}
         return (
+            <Container>
             <div>
                 <h1> {dog.title} </h1>
                 <SubmitForm 
@@ -54,6 +55,7 @@ class Edit extends React.Component{
             />
             <Button negative onClick={this.deletePost}> Delete this post </Button>
             </div>
+            </Container>
         )
     }
 }

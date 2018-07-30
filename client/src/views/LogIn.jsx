@@ -1,5 +1,6 @@
 import React from 'react'
 import httpClient from "../httpClient"
+import {Button, Input, Container} from 'semantic-ui-react'
 
 class LogIn extends React.Component{
     state = {
@@ -36,9 +37,9 @@ class LogIn extends React.Component{
                 <div className="column column-33 column-offset-33">
                 <h1> Log In </h1>
                     <form onChange={this.onInputChange.bind(this)} onSubmit={this.onFormSubmit.bind(this)}>
-                        <input type="text" placeholder="Email" name="email" autoComplete="off" value={email} />
-                        <input type="password" placeholder="Password" name="password" autoComplete="off" value={password} />
-                        <button> Log In </button>
+                        <Input type="text" placeholder="Email" name="email" autoComplete="off" value={email} size="big" />
+                        <Input type="password" placeholder="Password" name="password" autoComplete="off" value={password}  size="big"/>
+                        <Button positive size="big"> Log In </Button>
                     </form>
                 </div>
             </div>
