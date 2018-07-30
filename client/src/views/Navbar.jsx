@@ -1,26 +1,26 @@
 import React, {Fragment} from "react"
 import {Link} from "react-router-dom"
+import {Menu} from "semantic-ui-react"
 
 const NavBar = (props) => {
-    console.log(props)
     return(
-        <div className="NavBar">
-            <Link to='/'> Home </Link>
+        <Menu>
+           <Menu.Item header><Link to='/'> Home </Link></Menu.Item>
             {props.currentUser 
             ?  (
                 <Fragment>
-                    <Link to ='/DogFound'> Pooch Found! </Link>
-                    <Link to ='/logout'> Log Out </Link>
+                   <Menu.Item header> <Link to ='/DogFound'> Pooch Found! </Link> </Menu.Item>
+                   <Menu.Item header> <Link to ='/logout'> Log Out </Link> </Menu.Item>
                 </Fragment>
             )
             : (
                 <Fragment>
-                    <Link to ='/login'> Log In </Link>
-                    <Link to ='/signup'> Sign Up </Link>
+                <Menu.Item header> <Link to ='/login'> Log In </Link> </Menu.Item>
+                <Menu.Item header> <Link to ='/signup'> Sign Up </Link> </Menu.Item>
                 </Fragment>
             )
             }
-        </div>
+        </Menu>
     )
 }
 

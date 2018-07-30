@@ -39,7 +39,7 @@ class SignUp extends React.Component{
                         <input type="text" placeholder="Name" name="name" autoComplete="off" value={name}/>
                         <input type="text" placeholder="Email" name="email" autoComplete="off" value={email} />
                         <input type="password" placeholder="Password" name="password" autoComplete="off" value={password} />
-                        <Button positive> Sign Up </Button>
+                        <Button positive attached="right"> Sign Up </Button>
                     </form>
                 </div>
             </div>
