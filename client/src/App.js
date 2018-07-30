@@ -32,7 +32,6 @@ class App extends Component {
     return (
       <div className="App">
       <NavBar  currentUser={this.state.currentUser} />
-      {this.state.currentUser && <Chatbar currentUser={this.state.currentUser} />}
        <Switch>
          <Route exact path="/dogfound" render={(routeProps) => {
            return this.state.currentUser
@@ -65,6 +64,7 @@ class App extends Component {
           }} />
           <Route exact path="/" component={Home} />
         </Switch>
+        {this.state.currentUser && <Chatbar currentUser={this.state.currentUser} />}
         <Footer />
       </div>
     );
