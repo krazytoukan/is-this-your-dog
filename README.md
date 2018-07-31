@@ -9,53 +9,53 @@ Users can search for their dogs with "Dog Tags" by location, name, breed, defini
 
 ## Screenshots
 
+Home Page: ![](https://i.imgur.com/Y8TPuCw.png)
+Show Page: ![](https://i.imgur.com/2dTlTYM.png)
+Chat: ![](https://i.imgur.com/zGVHFvh.png)
+Found Dog: ![](https://i.imgur.com/WGjWi1R.png)
 
+##Technologies
 
-Technologies
-Node.js
+React Framework (For Client Side Front End)
+Node.js using Express.js for Back End Server Handling
+Amazon Webservices S3 for Photo Upload and storage
 HTML
 CSS
-Jquery
-JavaScript
-Bootstrap
-Express
-Mongoose
+Vanilla JavaScript
+Semantic UI
+Semantic UI for React (For Styling)
+Mongoose (For MongoDB based data management)
 Mongo DB
-Passport
-Morgan
+JWT- Tokens (For Client Validation and Token/Cookie management)
 Nodemon
-Socket.io
-Bycrypt for Node.js
-EJS
-EJS Template View
+Socket.io (To extablish websocket for chat function)
+Bycrypt for Node.js (For password encryption and decryption)
 GitHub
-Our app's RESTful JSON API.
-RESTful JSON API
+Axios (API Client)
+Serverside RESTful JSON API.
 
-Installation/startup instructions.
+
+### Installation/startup instructions.
 Step by step
 
-Download this directory from Github to a local directory on your computer
-Open Terminal
-Open the project directory and type in: npm i (This will install npm packages needed to run the app)
-Make sure you have MongoDB, if not, download it from the MongoDB website.
-Initiate a Mongo local server with command MONGOD
-Open a new terminal tab and make sure you are not in MongoDB or have a node server open in that tab
-Open a new tab on your browser and type in localhost:3000 in the address bar. (If you encounter an error or a different application loads, make sure you do not have a previous local server running in a different terminal tab.)
-Start exploring/posting/sharing the red planet!
-Wire Frames
-alt text
+- Download this directory from Github to a local directory on your computer
+- With Amazon Webservices S3, create a virtual storage bucket.
+- Allow public access to the bucket, but keep your AWS access keys, secret access key, and bucket name secret
+- Open Terminal
+- Open the is-this-your-dog directory and type in: npm i (This will install npm packages needed to run the serversides app)
+- Create a .env file in the root is-this-your-dog directory
+- Populate the .env file with a JWT_SECRET, your amazon BUCKET_NAME, your amazon AWS_ACCESS_KEY and your AWS_SECRET_KEY
+- Make sure you have MongoDB.
+- Initiate a Mongo local server with command MONGOD
+- Open a new terminal tab and use command nodemon or node server.js to start the server backend.
+- Navigate into the client side folder from the is-this-your-dog root directory by using the command cd client
+- run npm start from within the client directory to being the client-side React App.
+- Open a new tab on your browser and type in localhost:3000 in the address bar. (If you encounter an error or a different application loads, make sure you do not have a previous local server running in a different terminal tab.)
+- Start posting dogs and chatting with your self.
 
-alt text
 
-alt text
-
-alt text
-
-Entity Relationship Diagrams
-alt text
-
-Backlog
-Descriptions of any unsolved problems or major hurdles your team had to overcome.
-
-Ping the NASA Curiosity API to download actual ground photos of Mars and dynamically display them.
+## Backlog
+- Implement a third private message model so that users can contact each other directly.
+- Implement geo-tagging of Dog Location with Google Maps API
+- Improve chat functionality by adding a modal or side bar for chat rather than appending to bottom.
+- Contemplating changing build to lazy load and refactoring search parameters to allow for scalability
