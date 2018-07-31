@@ -1,8 +1,15 @@
-# Is this your Dog?!
+# Is This Your Dog?!
+
+Have you ever seen a dog on the side of the road, grabbed it and tried to find its owner to no avail? Have you ever lost a dog and spent hours searching and putting up signs for that dog?
+
+Is This Your Dog is a a crowdsourced website which allows users to post photos of dogs they have found (or that they just took a really good photo of!) so that their owners can easily find their missing poocherinos quickly and, hopefully, without too much worry.  Found a dog? Post its photo, location, and description here!
+
+Users can search for their dogs with "Dog Tags" by location, name, breed, defining features, however you could want. Users can also chat with other users in order to arrange pickup of their canine companions.
 
 
-Screenshots
-Home page Home page with both side bars expanded Sign up Page Log In Page Edit User Account Page Site Show Page Site Show w/ Sidebar Expanded New Site Page Index page w/ Chat sidebar expanded
+## Screenshots
+
+
 
 Technologies
 Node.js

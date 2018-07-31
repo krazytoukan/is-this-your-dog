@@ -42,10 +42,10 @@ class Chat extends React.Component {
     handleSidebarHide = () => this.setState({ visible: false })
 
     render() {
-        const chatList = this.state.chatList.reverse()
+        const chatList = this.state.chatList
         return (
             <div>
-                <h5>Chat With Other Users Regarding Pooches (Found or Otherwise)!</h5>
+                <h2>Chat With Other Users Regarding Pooches (Found or Otherwise)!</h2>
                 <Input type="text" name="message" placeholder="Message" onChange={this.handleTextChange} size="large" />
                 <Button size="large" onClick={this.sendMessage} id="send-chat" >Send</Button>
                 <div>
